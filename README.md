@@ -38,14 +38,6 @@ npm run build      # typecheck + production build into dist/
 4. Under Authentication → URL Configuration, set the Site URL to your Netlify URL.
 5. Add the two environment variables above.
 
-## Deploy to Netlify
-
-1. Push this repository to GitHub.
-2. In Netlify: Add new site → Import an existing project → pick the repository.
-3. Build settings are read from `netlify.toml` (`npm run build`, publish `dist`, Node 22, SPA redirect, security headers).
-4. Site configuration → Environment variables: add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` (skip both to run in local-only mode).
-5. Deploy. Redeploy after changing environment variables, since they are baked in at build time.
-
 ## Security controls
 
 - Authorization is enforced by Postgres RLS (`user_id = auth.uid()` on select/insert/update/delete); the client never sends `user_id`, and anonymous access is revoked.
